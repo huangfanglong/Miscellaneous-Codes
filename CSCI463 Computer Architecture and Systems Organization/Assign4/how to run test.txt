@@ -1,0 +1,40 @@
+in cmd, copy paste each line
+
+./rv32i -mc0 testdata/allinsns.bin > allinsns.run
+diff testdata/allinsns-mc0.out allinsns.run
+
+./rv32i -mc0 testdata/allinsns4.bin > allinsns4.run
+diff testdata/allinsns4-mc0.out allinsns4.run
+
+./rv32i testdata/allinsns5.bin > allinsns5.run
+diff testdata/allinsns5.out allinsns5.run
+
+./rv32i -m100 testdata/badhex.bin > badhex.run
+diff testdata/badhex-m100.out badhex.run
+
+./rv32i -m1 testdata/li.bin > li.run
+diff testdata/li-m1.out li.run
+
+./rv32i testdata/master.bin > master.run
+diff testdata/master.out master.run
+
+./rv32i -m1000 testdata/pcrel.bin > pcrel.run
+diff testdata/pcrel-m1000.out pcrel.run
+
+./rv32i -m20 testdata/reladdr.bin > reladdr.run
+diff testdata/reladdr-m20.out reladdr.run
+
+./rv32i -m33e68 testdata/sieve.bin > sieve.run
+diff testdata/sieve-m33e68.out sieve.run
+
+./rv32i -ma0 testdata/small.bin > small.run
+diff testdata/small-ma0.out small.run
+
+./rv32i -m40 testdata/tinyprog.bin > tinyprog.run
+diff testdata/tinyprog-m40.out tinyprog.run
+
+./rv32i -m410 testdata/torture.bin > torture.run
+diff testdata/torture-m410.out torture.run
+
+./rv32i -m500 testdata/torture5.bin > torture5.run
+diff testdata/torture5-m500.out torture5.run
