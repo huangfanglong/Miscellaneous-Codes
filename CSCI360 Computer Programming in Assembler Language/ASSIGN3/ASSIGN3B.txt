@@ -1,0 +1,125 @@
+
+                   J E S 2  J O B  L O G  --  S Y S T E M  2 9 6 4  --  N O D E  S V S C J E S 2        
+
+ 
+22.54.20 JOB01330 ---- FRIDAY,    18 FEB 2022 ----
+22.54.20 JOB01330  IRR010I  USERID KC03D45  IS ASSIGNED TO THIS JOB.
+22.54.20 JOB01330  ICH70001I KC03D45  LAST ACCESS AT 22:48:50 ON FRIDAY, FEBRUARY 18, 2022
+22.54.20 JOB01330  $HASP373 KC03D45A STARTED - INIT 1    - CLASS A        - SYS 2964
+22.54.21 JOB01330  -                                      -----TIMINGS (MINS.)------                          -----PAGING COUNTS----
+22.54.21 JOB01330  -STEPNAME PROCSTEP    RC   EXCP   CONN       TCB       SRB  CLOCK          SERV  WORKLOAD  PAGE  SWAP   VIO SWAPS
+22.54.21 JOB01330  -JSTEP01              00     23      3       .00       .00     .0             4  BATCH        0     0     0     0
+22.54.21 JOB01330  -KC03D45A ENDED.  NAME-L. HUANG             TOTAL TCB CPU TIME=      .00 TOTAL ELAPSED TIME=    .0
+22.54.21 JOB01330  $HASP395 KC03D45A ENDED - RC=0000
+
+------ JES2 JOB STATISTICS ------
+
+
+  18 FEB 2022 JOB EXECUTION DATE
+
+
+           40 CARDS READ
+
+
+           96 SYSOUT PRINT RECORDS
+
+
+            0 SYSOUT PUNCH RECORDS
+
+
+           10 SYSOUT SPOOL KBYTES
+
+
+         0.00 MINUTES EXECUTION TIME
+!! END OF JES SPOOL FILE !!
+       1 //KC03D45A JOB ,'L. HUANG',MSGCLASS=H                                   JOB01330
+       2 //JSTEP01  EXEC PGM=ASSIST                                                      
+       3 //STEPLIB  DD DSN=KC00NIU.ASSIST.LOADLIB,DISP=SHR                               
+       4 //SYSPRINT DD SYSOUT=*                                                          
+       5 //SYSIN    DD *                                                                 
+       6 //                                                                              
+!! END OF JES SPOOL FILE !!
+ICH70001I KC03D45  LAST ACCESS AT 22:48:50 ON FRIDAY, FEBRUARY 18, 2022
+IEFA111I KC03D45A IS USING THE FOLLOWING JOB RELATED SETTINGS:
+         SWA=ABOVE,TIOT SIZE=32K,DSENQSHR=DISALLOW,GDGBIAS=JOB
+IEF236I ALLOC. FOR KC03D45A JSTEP01
+IGD103I SMS ALLOCATED TO DDNAME STEPLIB
+IEF237I JES2 ALLOCATED TO SYSPRINT
+IEF237I JES2 ALLOCATED TO SYSIN
+IEF142I KC03D45A JSTEP01 - STEP WAS EXECUTED - COND CODE 0000
+IGD104I KC00NIU.ASSIST.LOADLIB                       RETAINED,  DDNAME=STEPLIB 
+IEF285I   KC03D45.KC03D45A.JOB01330.D0000102.?         SYSOUT        
+IEF285I   KC03D45.KC03D45A.JOB01330.D0000101.?         SYSIN         
+IEF373I STEP/JSTEP01 /START 2022049.2254
+IEF032I STEP/JSTEP01 /STOP  2022049.2254 
+        CPU:     0 HR  00 MIN  00.00 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+        VIRT:   584K  SYS:   248K  EXT:        0K  SYS:    11252K
+        ATB- REAL:                  1056K  SLOTS:                     0K
+             VIRT- ALLOC:      13M SHRD:       0M
+IEF375I  JOB/KC03D45A/START 2022049.2254
+IEF033I  JOB/KC03D45A/STOP  2022049.2254 
+        CPU:     0 HR  00 MIN  00.00 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+!! END OF JES SPOOL FILE !!
+
+*** ASSIST 4.0/A2-05/15/82  470/V7A/0:OS/VS2  INS=SDFP7/X=BGHO, CHECK/TRC/=1180, OPTS=CDKMPR FROM PENN ST*NIU COMPSCI*LT            
+
+                                                                                                                                    
+
+                                                                                                               PAGE    1            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                      1 ******************************************************************                          
+                                      2 *                                                                *                          
+                                      3 *   CSCI 360-1 or PE1       ASSIGNMENT 3             SPRING 2022 *                          
+                                      4 *                                                                *                          
+                                      5 *   DEVELOPER NAME: LONG HUANG                                   *                          
+                                      6 *         DUE DATE: 02/18/2022                                   *                          
+                                      7 *                                                                *                          
+                                      8 ******************************************************************                          
+                                      9 *        COL. 10                                                                            
+                                     10 *        |     COL. 16                                                                      
+                                     11 *        |     |                                                                            
+                                     12 *        v     v                                                                            
+000000                               13 ASSIGN3B CSECT                                                                              
+000000                               14          USING ASSIGN3B,15  ESTABLISH ADDRESSABILITY ON REG 15                              
+000000 5810 F028            00028    15          L     1,VAR1       LOAD VAR1 TO REGISTER 1                                         
+000004 5820 F02C            0002C    16          L     2,VAR2       LOAD VAR2 TO REGISTER 2                                         
+000008 1B12                          17          SR    1,2          SUBTRACT VAR1 FROM VAR2                                         
+00000A 5830 F028            00028    18          L     3,VAR1       LOAD VAR1 TO REGISTER 3                                         
+00000E 5840 F02C            0002C    19          L     4,VAR2       LOAD VAR2 TO REGISTER 4                                         
+000012 1A34                          20          AR    3,4          ADD VAR2 TO VAR1                                                
+000014 5010 F030            00030    21          ST    1,VAR3       STORE VAR1 ANSWER TO VAR3                                       
+000018 5030 F034            00034    22          ST    3,VAR4       STORE VAR2 ANSWER TO VAR4                                       
+00001C E060 F030 0008 00030          23          XDUMP VAR3,8       DUMP 8 BYTES BEGINNING AT VAR3                                  
+000022 07FE                          24          BCR   B'1111',14   UNCONDITIONAL RETURN TO CALLER (OS)                             
+                                     25 *                                                                                           
+                                     26          LTORG              LITERAL ORGANIZATION                                            
+                                     27 *                                                                                           
+000028 0000015E                      28 VAR1     DC    F'350'       DECLARE INITIALIZED FULLWORD                                    
+00002C 0000008D                      29 VAR2     DC    F'141'       DECLARE INITIALIZED FULLWORD                                    
+000030                               30 VAR3     DS    F'0'         DECLARE FULLWORD STORAGE                                        
+000034                               31 VAR4     DS    F'0'         DECLARE FULLWORD STORAGE                                        
+                                     32 *                                                                                           
+                                     33          END   ASSIGN3B                                                                     
+
+***  NO   STATEMENTS FLAGGED -  NO   WARNINGS,  NO   ERRORS                                                                         
+
+*** DYNAMIC CORE AREA USED:  LOW:    1252 HIGH:     412 LEAVING:  491904 FREE BYTES. AVERAGE:       48 BYTES/STMT ***               
+
+*** ASSEMBLY TIME =    0.000 SECS,    34000 STATEMENTS/SEC ***                                                                      
+
+*** PROGRAM EXECUTION BEGINNING - ANY OUTPUT BEFORE EXECUTION TIME MESSAGE IS PRODUCED BY USER PROGRAM ***                          
+
+BEGIN XSNAP - CALL     1 AT E0000022 USER STORAGE                                                                                   
+
+                             CORE ADDRESSES SPECIFIED-     000030 TO 000038                                                         
+000020   000807FE F5F5F5F5 0000015E 0000008D    000000D1 000001EB F5F5F5F5 00000000   *....5555...........J....5555....*            
+
+                                                                                                                                    
+
+*** EXECUTION TIME =    0.000 SECS.        10 INSTRUCTIONS EXECUTED -    10000 INSTRUCTIONS/SEC ***                                 
+
+*** FIRST CARD NOT READ: NO CARDS READ:FILE UNOPENED                                                                                
+
+*** AM004 - NORMAL USER TERMINATION BY RETURN ***                                                                                   
+!! END OF JES SPOOL FILE !!
