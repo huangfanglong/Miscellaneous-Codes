@@ -1,0 +1,209 @@
+The following is the report output you should produce with your Assignment 4 program, SALESRPT:
+
+Athens, Greece                George Schipodokas                      $1,124.71                                                     
+
+Athens, Greece                Boodra Makedonas                        $3,704.71                                                     
+
+Athens, Greece                Aristotle Onassis                      $14,173.13                                                     
+
+Athens, Greece                Maria Callas                           $15,401.52                                                     
+
+Athens, Greece                Kostas Dalaras                          $7,740.68                                                     
+
+Athens, Greece                Peter Bogdonas                          $2,334.72                                                     
+
+Berlin, Germany               Erich Kleiber                          $93,618.48                                                     
+
+Berlin, Germany               Wilhelm Furtwaengler                  $716,614.94                                                     
+
+Berlin, Germany               Adolph Dege                            $80,821.35                                                     
+
+Berlin, Germany               Johannes Klopp                        $400,870.20                                                     
+
+Berlin, Germany               Eugen Jochum                        $9,999,999.99                                                     
+
+Bonn, Germany                 Ludwig van Beethoven                    $4,061.21                                                     
+
+Bonn, Germany                 Uwe Schmidt                           $207,430.39                                                     
+
+Bonn, Germany                 Helga Dernesch                            $841.52                                                     
+
+Bonn, Germany                 Richard Strauss                       $310,814.02                                                     
+
+Chicago, U.S.                 Maurizio Damilano                   $4,000,081.02                                                     
+
+Chicago, U.S.                 Chi Yen Weh                           $431,081.00                                                     
+
+Chicago, U.S.                 Steve Peplowski                       $241,001.21                                                     
+
+Chicago, U.S.                 Michael Smith                         $314,081.22                                                     
+
+Chicago, U.S.                 Charles Medley                        $310,481.23                                                     
+
+Chicago, U.S.                 Risa Rogan                            $310,841.24                                                     
+
+Chicago, U.S.                 Theodore Thomas                       $310,814.25                                                     
+
+Chicago, U.S.                 Frederick Stock                       $310,812.46                                                     
+
+Dublin, Ireland               Billy O'Leary                         $310,821.42                                                     
+
+Dublin, Ireland               Anna Owen                             $331,083.14                                                     
+
+Belfast, N. Ireland           Chet Manassas                          $51,223.41                                                     
+
+Belfast, N. Ireland           Shelley Mann                          $330,000.52                                                     
+
+Belfast, N. Ireland           Philip Battenberg                       $3,111.60                                                     
+
+Edinburgh, U.K.               Billy Connolly                        $310,381.72                                                     
+
+Edinburgh, U.K.               Omar Sharif                           $310,831.12                                                     
+
+Edinburgh, U.K.               Julie Christie                        $310,813.12                                                     
+
+Edinburgh, U.K.               James Oxfordshire                     $310,811.32                                                     
+
+Frankfurt, Germany            Johannes Dundor                       $460,641.05                                                     
+
+Frankfurt, Germany            Gretel Decker                         $180,764.08                                                     
+
+Frankfurt, Germany            Adam Dieffenbach                      $606,825.41                                                     
+
+Hong Kong, China              Mao Zedong                            $608,627.12                                                     
+
+Hong Kong, China              Zhou Enlai                            $608,266.12                                                     
+
+Hong Kong, China              Zhau Ziyang                           $698,276.12                                                     
+
+Hong Kong, China              Chiang Kai-shek                     $2,618,281.62                                                     
+
+Hong Kong, China              Gau-Yin Lau                            $60,829.12                                                     
+
+Hong Kong, China              Stephanie Buckingham                  $460,821.23                                                     
+
+Hong Kong, China              Simon Draper                          $640,821.23                                                     
+
+London, U.K.                  Elizabeth Windsor                     $714,492.35                                                     
+
+London, U.K.                  Charles Windsor                       $217,916.20                                                     
+
+London, U.K.                  Andrew Windsor                        $661,102.24                                                     
+
+London, U.K.                  Michael Windsor                     $1,066,362.25                                                     
+
+London, U.K.                  Phillip Windsor                       $116,641.61                                                     
+
+London, U.K.                  William Windsor                       $221,661.72                                                     
+
+Los Angeles, U.S.             William Mills                         $111,966.78                                                     
+
+Los Angeles, U.S.             Catherine Monteiro                  $9,999,999.99                                                     
+
+Los Angeles, U.S.             Jason Landau                          $500,000.78                                                     
+
+Los Angeles, U.S.             Trevor Pinnicle                       $150,000.00                                                     
+
+Kyev, Ukraine                 Yvgeny Yevtushenko                    $135,191.78                                                     
+
+Kyev, Ukraine                 Vladimir Ashkenazy                    $111,591.78                                                     
+
+Kyev, Ukraine                 Serge Rachmaninov                      $11,951.78                                                     
+
+Kyev, Ukraine                 Leo Tolstoy                           $101,915.77                                                     
+
+Kyev, Ukraine                 Fyodor Dostoevsky                      $11,333.63                                                     
+
+Kyev, Ukraine                 Dmitri Shostakovich                   $181,194.74                                                     
+
+New York, U.S.                Gary Graffman                         $118,191.78                                                     
+
+New York, U.S.                Andre Previn                          $232,821.78                                                     
+
+New York, U.S.                Samuel Jefferson                       $99,989.99                                                     
+
+New York, U.S.                John Adams                            $111,978.78                                                     
+
+New York, U.S.                Cheryl Studer                         $301,491.78                                                     
+
+New York, U.S.                Renee Fleming                         $331,121.78                                                     
+
+New York, U.S.                Birgit Nilsson                         $33,194.48                                                     
+
+New York, U.S.                Christa Ludwig                        $113,391.74                                                     
+
+New York, U.S.                James Conlon                           $99,939.99                                                     
+
+New York, U.S.                Leonard Bernstein                     $111,913.78                                                     
+
+Paris, France                 Napoleon Bonaparte                  $1,007,309.30                                                     
+
+Paris, France                 Claude Monet                        $3,001,251.86                                                     
+
+Paris, France                 Olivier Messiaen                      $300,141.60                                                     
+
+Paris, France                 Claude Debussy                        $930,781.55                                                     
+
+Paris, France                 Maurice Ravel                       $1,003,012.22                                                     
+
+Paris, France                 Edith Piaf                            $263,340.33                                                     
+
+Paris, France                 Coco Chanel                           $226,130.54                                                     
+
+Sao Paulo, Brazil             Joao Castagneto                         $3,103.55                                                     
+
+Sao Paulo, Brazil             Lasar Segall                            $6,105.37                                                     
+
+Sao Paulo, Brazil             Tarsila do Amaral                     $300,010.58                                                     
+
+Sao Paulo, Brazil             Eliseu Visconti                        $32,230.54                                                     
+
+Rome, Italy                   Julius Caesar                         $203,410.65                                                     
+
+Rome, Italy                   Franco Sinatra                          $4,310.55                                                     
+
+Rome, Italy                   Giacomo Puccini                        $30,460.45                                                     
+
+Rome, Italy                   Enrico Caruso                          $88,413.35                                                     
+
+Rome, Italy                   Sofia Loren                           $900,415.25                                                     
+
+Sydney, Australia             Milton Sheppard                        $90,460.65                                                     
+
+Sydney, Australia             Shelley Boughton                        $9,810.58                                                     
+
+Sydney, Australia             Joan Sutherland                         $2,910.55                                                     
+
+Sydney, Australia             Barry Tuckwell                          $9,190.54                                                     
+
+Sydney, Australia             Cayla Smithe                            $2,109.59                                                     
+
+Sydney, Australia             Benjamin Britten                        $4,105.94                                                     
+
+Sydney, Australia             Peter Pears                             $4,930.56                                                     
+
+Sydney, Australia             Paul Gray                              $90,310.45                                                     
+
+Vienna, Austria               Herbert von Karajan                     $9,580.28                                                     
+
+Vienna, Austria               Franz Joseph Haydn                      $5,890.30                                                     
+
+Vienna, Austria               Josef Strauss                          $15,809.48                                                     
+
+Vienna, Austria               Karl Boehm                            $505,808.96                                                     
+
+Vienna, Austria               Elisabeth Schwarzkopf                  $12,480.29                                                     
+
+Vienna, Austria               Franz Peter Schubert                    $9,831.05                                                     
+
+Zurich, Switzerland           Earl Grey                             $400,058.01                                                     
+
+Zurich, Switzerland           Diana Kensington                       $87,057.55                                                     
+
+Zurich, Switzerland           Axel Vondenberg                        $30,759.01                                                     
+
+Zurich, Switzerland           Ute Schweitzer                        $147,058.00                                                     
+
+Zurich, Switzerland           Rene Jacobs                            $72,558.00                                                     
+
+Zurich, Switzerland           Anton Bruckner                         $99,999.99                                                     
