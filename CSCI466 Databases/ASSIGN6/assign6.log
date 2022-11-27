@@ -1,0 +1,128 @@
+    -> \. assign6backup.sql
+Query OK, 0 rows affected (0.122 sec)
+
+Query OK, 0 rows affected (0.192 sec)
+
+Query OK, 1 row affected (0.008 sec)
+
+Query OK, 1 row affected (0.008 sec)
+
+Query OK, 1 row affected (0.017 sec)
+
+Query OK, 1 row affected (0.017 sec)
+
+Query OK, 1 row affected (0.008 sec)
+
+Query OK, 1 row affected (0.008 sec)
+
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| DogID  | int(9)      | NO   | PRI | NULL    | auto_increment |
+| Breed  | varchar(30) | NO   |     | NULL    |                |
+| Name   | varchar(20) | NO   |     | NULL    |                |
+| Weight | varchar(6)  | NO   |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+4 rows in set (0.001 sec)
+
++-----------+------------------+------+--------+
+| DogID     | Breed            | Name | Weight |
++-----------+------------------+------+--------+
+| 123456789 | Husky            | Joe  | 50kg   |
+| 525845691 | Dobermann        | JayK | 39.9kg |
+| 564782945 | German Shepherd  | So   | 52kg   |
+| 758451920 | Pomeranian       | Fat  | 2.49kg |
+| 823954710 | Alaskan Malamute | Haha | 35kg   |
+| 987654321 | Bulldog          | Mama | 61.5kg |
++-----------+------------------+------+--------+
+6 rows in set (0.001 sec)
+
+Query OK, 0 rows affected (0.131 sec)
+
+Query OK, 1 row affected (0.023 sec)
+
+Query OK, 1 row affected (0.011 sec)
+
+Query OK, 1 row affected (0.008 sec)
+
+Query OK, 1 row affected (0.008 sec)
+
+Query OK, 1 row affected (0.008 sec)
+
+Query OK, 1 row affected (0.008 sec)
+
+Query OK, 1 row affected (0.008 sec)
+
+Query OK, 1 row affected (0.008 sec)
+
+Query OK, 1 row affected (0.008 sec)
+
++---------+-----------+------+-----+---------------------+-------------------------------+
+| Field   | Type      | Null | Key | Default             | Extra                         |
++---------+-----------+------+-----+---------------------+-------------------------------+
+| VisitID | int(9)    | NO   | PRI | NULL                | auto_increment                |
+| DogID   | int(9)    | NO   | MUL | NULL                |                               |
+| Date    | timestamp | NO   |     | current_timestamp() | on update current_timestamp() |
++---------+-----------+------+-----+---------------------+-------------------------------+
+3 rows in set (0.001 sec)
+
++---------+-----------+---------------------+
+| VisitID | DogID     | Date                |
++---------+-----------+---------------------+
+|       1 | 758451920 | 2022-01-15 09:12:01 |
+|       2 | 758451920 | 2022-01-16 15:55:24 |
+|       3 | 564782945 | 2022-01-16 19:42:19 |
+|       4 | 123456789 | 2022-01-25 07:05:59 |
+|       5 | 987654321 | 2022-01-27 14:11:02 |
+|       6 | 823954710 | 2022-01-28 11:59:09 |
+|       7 | 525845691 | 2022-01-28 12:02:00 |
+|       8 | 758451920 | 2022-01-28 12:02:00 |
+|       9 | 823954710 | 2022-02-02 08:04:55 |
++---------+-----------+---------------------+
+9 rows in set (0.001 sec)
+
+Query OK, 0 rows affected (0.065 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+Query OK, 1 row affected (0.008 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+Query OK, 1 row affected (0.008 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+Query OK, 1 row affected (0.008 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+Query OK, 1 row affected (0.008 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+Query OK, 1 row affected (0.008 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+Query OK, 1 row affected (0.008 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+Query OK, 1 row affected (0.008 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+Query OK, 1 row affected (0.008 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+Query OK, 1 row affected (0.008 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
++---------+-----------+---------------------+--------+
+| VisitID | DogID     | Date                | Bill   |
++---------+-----------+---------------------+--------+
+|       1 | 758451920 | 2022-03-04 20:36:45 | $51.25 |
+|       2 | 758451920 | 2022-03-04 20:36:45 | $51.25 |
+|       3 | 564782945 | 2022-03-04 20:36:45 | $51.25 |
+|       4 | 123456789 | 2022-03-04 20:36:45 | $99.89 |
+|       5 | 987654321 | 2022-03-04 20:36:45 | $25.00 |
+|       6 | 823954710 | 2022-03-04 20:36:45 | $67.54 |
+|       7 | 525845691 | 2022-03-04 20:36:45 | $51.25 |
+|       8 | 758451920 | 2022-03-04 20:36:45 | $51.25 |
+|       9 | 823954710 | 2022-03-04 20:36:45 | $99.89 |
++---------+-----------+---------------------+--------+
+9 rows in set (0.001 sec)
+

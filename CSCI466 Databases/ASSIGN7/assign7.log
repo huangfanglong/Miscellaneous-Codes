@@ -1,0 +1,219 @@
+MariaDB [BabyName]> \. assign7.sql
+Database changed
++--------------------+
+| Tables_in_BabyName |
++--------------------+
+| BabyName           |
++--------------------+
+1 row in set (0.000 sec)
+
++------------+
+| name       |
++------------+
+| Aadam      |
+| Aadil      |
+| Aaditya    |
+| Aakash     |
+| Aakilah    |
+| Aaleyah    |
+| Aalia      |
+| Aaliah     |
+| Aaliayah   |
+| Aalijah    |
+| Aaliya     |
+| Aaliyah    |
+| Aaliyan    |
+| Aaliyha    |
+| Aalliyah   |
+| Aalyah     |
+| Aalyiah    |
+| Aaminah    |
+| Aamir      |
+| Aamna      |
+| Aania      |
+| Aaniya     |
+| Aaniyah    |
+| Aanya      |
+| Aaran      |
+| Aaren      |
+| Aareon     |
+| Aariana    |
+| Aarianna   |
+| Aaric      |
+| Aarika     |
+| Aarin      |
+| Aarion     |
+| Aariona    |
+| Aaron      |
+| Aaronjames |
+| Aaronjohn  |
+| Aarron     |
+| Aarthi     |
+| Aarti      |
+| Aarushi    |
+| Aaryanna   |
+| Aaryn      |
+| Aasha      |
+| Aashay     |
+| Aashish    |
+| Aashka     |
+| Aashna     |
+| Aasia      |
+| Aasin      |
++------------+
+50 rows in set (0.000 sec)
+
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| name   | varchar(15) | NO   | PRI | NULL    |       |
+| count  | int(11)     | YES  |     | NULL    |       |
+| gender | char(1)     | NO   | PRI | NULL    |       |
+| year   | smallint(6) | NO   | PRI | NULL    |       |
+| place  | char(2)     | NO   | PRI | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+5 rows in set (0.001 sec)
+
++------+------+
+| year | name |
++------+------+
+| 1975 | Long |
+| 1976 | Long |
+| 1977 | Long |
+| 1978 | Long |
+| 1979 | Long |
+| 1980 | Long |
+| 1981 | Long |
+| 1982 | Long |
+| 1983 | Long |
+| 1984 | Long |
+| 1985 | Long |
+| 1986 | Long |
+| 1987 | Long |
+| 1988 | Long |
+| 1989 | Long |
+| 1990 | Long |
+| 1991 | Long |
+| 1992 | Long |
+| 1993 | Long |
+| 1994 | Long |
+| 1995 | Long |
+| 1996 | Long |
+| 1997 | Long |
+| 1998 | Long |
+| 1999 | Long |
+| 2000 | Long |
+| 2001 | Long |
+| 2002 | Long |
+| 2003 | Long |
+| 2004 | Long |
+| 2005 | Long |
+| 2006 | Long |
+| 2007 | Long |
+| 2008 | Long |
+| 2009 | Long |
+| 2010 | Long |
+| 2011 | Long |
+| 2012 | Long |
+| 2013 | Long |
+| 2014 | Long |
+| 2015 | Long |
++------+------+
+41 rows in set (0.000 sec)
+
++-------+----------------------+
+| place | COUNT(DISTINCT name) |
++-------+----------------------+
+| AK    |                 1583 |
+| AL    |                 6501 |
+| AR    |                 4825 |
+| AZ    |                 5500 |
+| CA    |                18986 |
+| CO    |                 4953 |
+| CT    |                 3531 |
+| DC    |                 2622 |
+| DE    |                 1677 |
+| FL    |                10820 |
+| GA    |                 9467 |
+| HI    |                 2870 |
+| IA    |                 4257 |
+| ID    |                 2874 |
+| IL    |                10847 |
+| IN    |                 6392 |
+| KS    |                 4359 |
+| KY    |                 5178 |
+| LA    |                 6957 |
+| MA    |                 5185 |
+| MD    |                 5455 |
+| ME    |                 2146 |
+| MI    |                 8567 |
+| MN    |                 5374 |
+| MO    |                 6301 |
+| MS    |                 5486 |
+| MT    |                 2188 |
+| NC    |                 8598 |
+| ND    |                 2282 |
+| NE    |                 3383 |
+| NH    |                 1756 |
+| NJ    |                 7428 |
+| NM    |                 3333 |
+| NV    |                 2861 |
+| NY    |                14101 |
+| OH    |                 9066 |
+| OK    |                 5548 |
+| OR    |                 4143 |
+| PA    |                 8851 |
+| RI    |                 1795 |
+| SC    |                 5632 |
+| SD    |                 2289 |
+| TN    |                 6750 |
+| TX    |                16768 |
+| US    |                95025 |
+| UT    |                 4489 |
+| VA    |                 7093 |
+| VT    |                 1358 |
+| WA    |                 5922 |
+| WI    |                 5369 |
++-------+----------------------+
+50 rows in set (0.000 sec)
+
++----------+--------+------------+
+| name     | gender | popularity |
++----------+--------+------------+
+| Michael  | M      |      67991 |
+| Jennifer | F      |      54336 |
++----------+--------+------------+
+2 rows in set (0.000 sec)
+
++---------+
+| name    |
++---------+
+| Long    |
+| Longin  |
+| Longina |
+| Longino |
++---------+
+4 rows in set (0.000 sec)
+
++----------+
+| COUNT(*) |
++----------+
+|  7601706 |
++----------+
+1 row in set (0.000 sec)
+
++--------+----------------------+
+| gender | COUNT(DISTINCT name) |
++--------+----------------------+
+| F      |                 9661 |
+| M      |                 5753 |
++--------+----------------------+
+2 rows in set (0.000 sec)
+
++------+----------------------+
+| year | COUNT(DISTINCT name) |
++------+----------------------+
+| 1974 |                14737 |
++------+----------------------+
+1 row in set (0.000 sec)
+
