@@ -1,0 +1,35 @@
+in cmd, copy paste each line
+
+./rv32i -i handouts5/allinsns5.bin > output/allinsns5-i.out
+./rv32i -X handouts5/allinsns5.bin > output/allinsns5-X.out 2>&1 || true
+./rv32i -dirz handouts5/allinsns5.bin > output/allinsns5-dirz.out
+./rv32i -dz handouts5/allinsns5.bin > output/allinsns5-dz.out
+./rv32i -m100 -iz handouts5/allinsns5.bin > output/allinsns5-iz-m100.out
+./rv32i -m100 -ir handouts5/allinsns5.bin > output/allinsns5-ir-m100.out
+./rv32i -m100 -irl2 handouts5/allinsns5.bin > output/allinsns5-irl2-m100.out
+./rv32i -dirz -m8500 handouts5/torture5.bin > output/torture5-dirz-m8500.out
+./rv32i -iz -m8500 handouts5/torture5.bin > output/torture5-iz-m8500.out
+./rv32i -z -m8500 handouts5/torture5.bin > output/torture5-z-m8500.out
+./rv32i -m8500 handouts5/torture5.bin > output/torture5-m8500.out
+./rv32i -z -m50000 handouts5/sieve.bin | head -10 > output/sieve-z-m50000-head-10.log
+./rv32i -z -m50000 handouts5/sieve.bin | grep "^00034[01]" > output/sieve-z-m50000-grep-0003401.log
+./rv32i -z -m50000 handouts5/sieve.bin | tail -100 > output/sieve-z-m50000-tail-100.out
+./rv32i -dirzl5 handouts5/align.bin > output/align-dirzl5.out
+./rv32i -dirz handouts5/align2.bin > output/align2-dirz.out
+
+diff handouts5/allinsns5-i.out output/allinsns5-i.out
+diff handouts5/allinsns5-X.out output/allinsns5-X.out
+diff handouts5/allinsns5-dirz.out output/allinsns5-dirz.out
+diff handouts5/allinsns5-dz.out output/allinsns5-dz.out
+diff handouts5/allinsns5-iz-m100.out output/allinsns5-iz-m100.out
+diff handouts5/allinsns5-ir-m100.out output/allinsns5-ir-m100.out
+diff handouts5/allinsns5-irl2-m100.out output/allinsns5-irl2-m100.out
+diff handouts5/torture5-dirz-m8500.out output/torture5-dirz-m8500.out
+diff handouts5/torture5-iz-m8500.out output/torture5-iz-m8500.out
+diff handouts5/torture5-z-m8500.out output/torture5-z-m8500.out
+diff handouts5/torture5-m8500.out output/torture5-m8500.out
+diff handouts5/sieve-z-m50000-head-10.out output/sieve-z-m50000-head-10.log
+diff handouts5/sieve-z-m50000-grep-0003401.out output/sieve-z-m50000-grep-0003401.log
+diff handouts5/sieve-z-m50000-tail-100.out output/sieve-z-m50000-tail-100.out
+diff handouts5/align-dirzl5.out output/align-dirzl5.out
+diff handouts5/align2-dirz.out output/align2-dirz.out
