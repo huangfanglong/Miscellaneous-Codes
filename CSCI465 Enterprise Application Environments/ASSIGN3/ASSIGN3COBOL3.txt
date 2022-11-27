@@ -1,0 +1,111 @@
+      
+      ********************************************************
+      *                                                      *
+      * PROGRAM NAME: COBOL3  	  © 2022 Geoffrey D. Decker  *
+      * PROGRAMMER:   GEOFFREY D. DECKER                     *
+      * DUE DATE:     08/26/2022                             *
+      *                                                      *
+      * FUNCTION: THIS PROGRAM READS INPUT DATA RECORDS      *
+      *           AND THEN WRITES THEM TO STANDARD OUTPUT.   *
+      *                                                      *
+      * INPUT: INDATA - THE INPUT DATA RECORDS READ IN.      *
+      *                                                      *
+      * OUTPUT: OUTDATA - THE INPUT DATA RECORDS WRITTEN     *
+      *                   OUT.                               *
+      *                                                      *
+      * NOTES: NONE                                          *
+      *                                                      *
+      ********************************************************
+
+       IDENTIFICATION DIVISION.
+
+       PROGRAM-ID.    COBOL3.
+       AUTHOR.        GEOFFREY D DECKER.
+       DATE-WRITTEN.  09/10/2022.
+       DATE-COMPILED.
+
+       ENVIRONMENT DIVISION.
+
+       INPUT-OUTPUT SECTION.
+
+       FILE-CONTROL.
+
+           SELECT INPUT-FILE ASSIGN TO INDATA.
+           SELECT REPORT-FILE ASSIGN TO RPTDATA.
+
+       DATA DIVISION.
+
+       FILE SECTION.
+
+       FD  INPUT-FILE
+           RECORDING MODE F.
+
+       01  INPUT-RECORD             PIC X(80).
+
+       FD  REPORT-FILE
+           RECORDING MODE F
+           BLOCK CONTAINS 20 RECORDS.
+
+       01  REPORT-RECORD            PIC X(132).
+
+       WORKING-STORAGE SECTION.
+
+       01  EOF-FLAG                  PIC X     VALUE 'N'.
+
+       01  RECORD-CTR               PIC S9(3)  BINARY SYNC VALUE 0.
+
+       01  DETAIL-LINE.
+           05  OUTPUT-RECORD        PIC X(80).
+           05  FILLER               PIC X(52)  VALUE SPACES.
+
+       01  TOTALS-LINE.
+           05  FILLER               PIC X(14)  VALUE 'RECORD COUNT: '.
+           05  OUT-RECORD-CTR       PIC ZZ9.
+           05  FILLER               PIC X(115) VALUE SPACES.
+
+       PROCEDURE DIVISION.
+
+       0000-MAIN.
+
+           OPEN INPUT  INPUT-FILE
+                OUTPUT REPORT-FILE.
+
+           READ INPUT-FILE
+             AT END MOVE 'Y' TO EOF-FLAG
+           END-READ.
+
+           PERFORM 0100-PROCESS-RECORD
+             UNTIL EOF-FLAG = 'Y'.
+
+           PERFORM 0200-PROCESS-TOTALS.
+
+           CLOSE INPUT-FILE
+                 REPORT-FILE.
+
+           MOVE 0 TO RETURN-CODE.
+ 
+           STOP RUN.
+
+       0000-EXIT. EXIT.
+          
+       0100-PROCESS-RECORD.
+
+           ADD 1 TO RECORD-CTR.           
+
+           MOVE INPUT-RECORD TO OUTPUT-RECORD.
+
+           WRITE REPORT-RECORD FROM DETAIL-LINE AFTER 2.
+
+           READ INPUT-FILE
+             AT END MOVE 'Y' TO EOF-FLAG
+           END-READ.
+
+       0100-EXIT. EXIT.
+
+       0200-PROCESS-TOTALS.
+
+           MOVE RECORD-CTR TO OUT-RECORD-CTR.
+
+           WRITE REPORT-RECORD FROM TOTALS-LINE AFTER 2.
+
+       0200-EXIT. EXIT.
