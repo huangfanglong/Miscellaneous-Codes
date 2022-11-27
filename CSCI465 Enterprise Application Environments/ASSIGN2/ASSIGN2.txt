@@ -1,0 +1,163 @@
+
+                   J E S 2  J O B  L O G  --  S Y S T E M  2 9 6 4  --  N O D E  S V S C J E S 2        
+
+ 
+12.49.18 JOB05863 ---- MONDAY,    12 SEP 2022 ----
+12.49.18 JOB05863  IRR010I  USERID KC03E6A  IS ASSIGNED TO THIS JOB.
+12.49.18 JOB05863  ICH70001I KC03E6A  LAST ACCESS AT 12:48:37 ON MONDAY, SEPTEMBER 12, 2022
+12.49.18 JOB05863  $HASP373 KC03E6AA STARTED - INIT 1    - CLASS A        - SYS 2964
+12.49.19 JOB05863  -                                      -----TIMINGS (MINS.)------                          -----PAGING COUNTS----
+12.49.19 JOB05863  -STEPNAME PROCSTEP    RC   EXCP   CONN       TCB       SRB  CLOCK          SERV  WORKLOAD  PAGE  SWAP   VIO SWAPS
+12.49.19 JOB05863  -JSTEP01              00     60     12       .00       .00     .0             5  BATCH        0     0     0     0
+12.49.19 JOB05863  -JSTEP02              00     56     11       .00       .00     .0             3  BATCH        0     0     0     0
+12.49.19 JOB05863  -KC03E6AA ENDED.  NAME-L.HUANG              TOTAL TCB CPU TIME=      .00 TOTAL ELAPSED TIME=    .0
+12.49.19 JOB05863  $HASP395 KC03E6AA ENDED - RC=0000
+
+------ JES2 JOB STATISTICS ------
+
+
+  12 SEP 2022 JOB EXECUTION DATE
+
+
+           60 CARDS READ
+
+
+          139 SYSOUT PRINT RECORDS
+
+
+            0 SYSOUT PUNCH RECORDS
+
+
+           14 SYSOUT SPOOL KBYTES
+
+
+         0.01 MINUTES EXECUTION TIME
+!! END OF JES SPOOL FILE !!
+       1 //KC03E6AA JOB ,'L.HUANG',MSGCLASS=H                                    JOB05863
+         //*                                                                             
+         //*****************************************************************             
+         //*                                                               *             
+         //*  CSCI 465               ASSIGNMENT 2        FALL 2022         *             
+         //*                                                               *             
+         //*  DEVELOPER NAME: LONG FANG HUANG                              *             
+         //*        DUE DATE: 09/09/2022                                   *             
+         //*                                                               *             
+         //*  PURPOSE: FETCH A PROGRAM                                     *             
+         //*                                                               *             
+         //*****************************************************************             
+         //*                                                                             
+       2 //JSTEP01  EXEC PGM=READRECS,PARM=ASA                                           
+         //*                                                                             
+         //******************************************************************            
+         //*                                                                *            
+         //* JSTEP01 READS FROM LIBRARY DATA AND PASSES TEMP DATA TO JSTEP02*            
+         //*                                                                *            
+         //* DDNAME           FILE DESCRIPTION                              *            
+         //*                                                                *            
+         //* STEPLIB  INPUT:  LOAD LIBRARY FROM DECKER                      *            
+         //* RECSIN   INPUT:  READ FROM DATA2                               *            
+         //*                                                                *            
+         //* RECSOUT  OUTPUT: CREATES TEMP DATA SET TO BE PASSED            *            
+         //* SYSDUMP  OUTPUT: DIAGNOSTIC                                    *            
+         //*                                                                *            
+         //******************************************************************            
+         //*                                                                             
+       3 //STEPLIB  DD DSN=KC02322.CSCI465.LOADLIB,DISP=SHR                              
+       4 //RECSIN   DD DSN=KC02322.CSCI465.ASNDATA(ASN2DATA),DISP=SHR                    
+         //*                                                                             
+       5 //RECSOUT  DD DSN=&&TEMPD,                                                      
+         //            SPACE=(TRK,(1,1)),                                                
+         //            DISP=(NEW,PASS,DELETE)                                            
+       6 //SYSDUMP  DD SYSOUT=*                                                          
+         //*                                                                             
+         //****************************************                                      
+         //*                                                                             
+       7 //JSTEP02  EXEC PGM=WRTERECS,COND=(0,LT)                                        
+         //*                                                                             
+         //******************************************************************            
+         //*                                                                *            
+         //* JSTEP02 RECEIVES TEMP DATA AND WRITES TO OUTPUT.               *            
+         //*                                                                *            
+         //* STEPLIB  INPUT:  LOAD LIBRARY FROM DECKER                      *            
+         //* RECSIN   INPUT:  RECEIVES TEMP DATA FROM JSTEP01               *            
+         //*                                                                *            
+         //* RECSOUT  OUTPUT: PRINTS THE OUTPUT FROM DATA                   *            
+         //* SYSDUMP  OUTPUT: DIAGNOSTIC                                    *            
+         //*                                                                *            
+         //******************************************************************            
+         //*                                                                             
+       8 //STEPLIB  DD DSN=KC02322.CSCI465.LOADLIB,                                      
+         //            DISP=SHR                                                          
+       9 //RECSIN   DD DSN=&&TEMPD,DISP=(OLD,DELETE,DELETE)                              
+         //*                                                                             
+      10 //RECSOUT  DD SYSOUT=*                                                          
+      11 //SYSDUMP  DD SYSOUT=*                                                          
+      12 //SYSIN     DD *               GENERATED STATEMENT                              
+!! END OF JES SPOOL FILE !!
+ICH70001I KC03E6A  LAST ACCESS AT 12:48:37 ON MONDAY, SEPTEMBER 12, 2022
+IEFA111I KC03E6AA IS USING THE FOLLOWING JOB RELATED SETTINGS:
+         SWA=ABOVE,TIOT SIZE=32K,DSENQSHR=DISALLOW,GDGBIAS=JOB
+IEF236I ALLOC. FOR KC03E6AA JSTEP01
+IGD103I SMS ALLOCATED TO DDNAME STEPLIB
+IGD103I SMS ALLOCATED TO DDNAME RECSIN
+IGD101I SMS ALLOCATED TO DDNAME (RECSOUT )
+        DSN (SYS22255.T124918.RA000.KC03E6AA.TEMPD.H01   )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00                                                                
+IEF237I JES2 ALLOCATED TO SYSDUMP
+IEF142I KC03E6AA JSTEP01 - STEP WAS EXECUTED - COND CODE 0000
+IGD104I KC02322.CSCI465.LOADLIB                      RETAINED,  DDNAME=STEPLIB 
+IGD104I KC02322.CSCI465.ASNDATA                      RETAINED,  DDNAME=RECSIN  
+IGD106I SYS22255.T124918.RA000.KC03E6AA.TEMPD.H01    PASSED,    DDNAME=RECSOUT 
+IEF285I   KC03E6A.KC03E6AA.JOB05863.D0000102.?         SYSOUT        
+IEF373I STEP/JSTEP01 /START 2022255.1249
+IEF032I STEP/JSTEP01 /STOP  2022255.1249 
+        CPU:     0 HR  00 MIN  00.00 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+        VIRT:    88K  SYS:   268K  EXT:     2788K  SYS:    11340K
+        ATB- REAL:                  1044K  SLOTS:                     0K
+             VIRT- ALLOC:      11M SHRD:       0M
+IEF236I ALLOC. FOR KC03E6AA JSTEP02
+IGD103I SMS ALLOCATED TO DDNAME STEPLIB
+IGD103I SMS ALLOCATED TO DDNAME RECSIN
+IEF237I JES2 ALLOCATED TO RECSOUT
+IEF237I JES2 ALLOCATED TO SYSDUMP
+IEF237I JES2 ALLOCATED TO SYSIN
+IEF142I KC03E6AA JSTEP02 - STEP WAS EXECUTED - COND CODE 0000
+IGD104I KC02322.CSCI465.LOADLIB                      RETAINED,  DDNAME=STEPLIB 
+IGD105I SYS22255.T124918.RA000.KC03E6AA.TEMPD.H01    DELETED,   DDNAME=RECSIN  
+IEF285I   KC03E6A.KC03E6AA.JOB05863.D0000103.?         SYSOUT        
+IEF285I   KC03E6A.KC03E6AA.JOB05863.D0000104.?         SYSOUT        
+IEF285I   KC03E6A.KC03E6AA.JOB05863.D0000101.?         SYSIN         
+IEF373I STEP/JSTEP02 /START 2022255.1249
+IEF032I STEP/JSTEP02 /STOP  2022255.1249 
+        CPU:     0 HR  00 MIN  00.00 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+        VIRT:    92K  SYS:   268K  EXT:     2788K  SYS:    11336K
+        ATB- REAL:                  1044K  SLOTS:                     0K
+             VIRT- ALLOC:      11M SHRD:       0M
+IEF375I  JOB/KC03E6AA/START 2022255.1249
+IEF033I  JOB/KC03E6AA/STOP  2022255.1249 
+        CPU:     0 HR  00 MIN  00.00 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+!! END OF JES SPOOL FILE !!
+
+QUOTATIONS FROM TWO IMPORTANT AMERICAN HISTORICAL DOCUMENTS                                                                         
+
+"We hold these truths to be self-evident, that all men are created                                                                  
+
+equal, that they are endowed by their Creator with certain unalienable                                                              
+
+Rights, that among these are Life, Liberty and the pursuit of                                                                       
+
+Happiness." -- Declaration of Independence, 1776                                                                                    
+
+"We the People of the United States, in Order to form a more perfect                                                                
+
+Union, establish Justice, insure domestic Tranquility, provide for the                                                              
+
+common defence, promote the general Welfare, and secure the Blessings                                                               
+
+of Liberty to ourselves and our Posterity, do ordain and establish this                                                             
+
+Constitution of the United States of America." -- Preamble to the U.S.                                                              
+
+Constitution, 1789                                                                                                                  
+!! END OF JES SPOOL FILE !!
