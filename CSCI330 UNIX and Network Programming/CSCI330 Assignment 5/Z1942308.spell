@@ -1,0 +1,38 @@
+#!/bin/bash
+
+#check for invalid input; if less than 1
+if [ $# -lt 1 ] ; then
+	echo "Usage: z1234567.spell filename"
+	exit 1
+fi
+#check if readable
+if [ ! -r "$1" ] ; then
+	echo "$1" "is not readable"
+	exit 2
+fi
+#check if file exists
+if [ ! -f "$1" ] ; then
+    echo "$1" "does not exists."
+    exit 3
+fi
+
+#insert words misspelled that are detected by aspell into var
+misspell=`aspell list < $1`
+
+for word in $misspell ; do
+
+	#if misspell is not empty, prompt for input to keep or fix misspell
+		echo "$word is misspelled. Press 'Enter' to keep" 
+		read -p "this spelling, or type a correction here: " answer
+		echo -e "\n"
+	#if prompt input not empty(enter), then insert input to fix
+		if [ ! "$answer" = "" ] ; then
+			array="$array$word\t\t$answer\n"
+		fi
+done
+
+#print out the misspelled and correction record
+if [ ! "$array" = "" ] ; then
+	echo -e "MISSPELLED:\tCORRECTIONS:"
+	echo -e $array
+fi
