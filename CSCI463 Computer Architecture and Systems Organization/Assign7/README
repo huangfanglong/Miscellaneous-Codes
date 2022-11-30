@@ -1,0 +1,23 @@
+Instructions:
+
+Compile:
+g++ -g -Wall -Werror -std=c++14 client.cpp -o client
+g++ -g -Wall -Werror -std=c++14 server.cpp -o server
+
+Run:
+CMD 1:
+./server -l [prt number]
+  EX: 
+    ./server -l 9965
+
+CMD 2:
+./client [prt number] < [input file]
+  EX:
+   ./client 9965 < ~/a5/sieve.bin | hexdump -C
+   ./client 9965 < ~/a5/torture5.bin | hexdump -C
+   ./client 9965 < ~/a3/testsx.in | hexdump -C
+   ./client -s 127.9.9.9 200 < ~/a5/torture5.bin | hexdump -C
+   ./client 5 < ~/a5/torture5.bin | hexdump -C
+   etc...
+  
+For more, see the handout pdf file.
