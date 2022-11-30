@@ -6,12 +6,12 @@ g++ -g -Wall -Werror -std=c++14 server.cpp -o server
 
 Run:
 CMD 1:
-./server -l [prt number]
+./server -l [port number]
   EX: 
     ./server -l 9965
 
 CMD 2:
-./client [prt number] < [input file]
+./client [port number] < [input file]
   EX:
    ./client 9965 < ~/a5/sieve.bin | hexdump -C
    ./client 9965 < ~/a5/torture5.bin | hexdump -C
