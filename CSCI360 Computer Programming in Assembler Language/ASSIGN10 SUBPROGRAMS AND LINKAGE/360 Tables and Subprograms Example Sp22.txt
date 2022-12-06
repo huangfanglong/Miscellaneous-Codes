@@ -1,0 +1,189 @@
+          PRINT NOGEN
+*****************************************************************
+*                                                               *
+*  CSCI 360           EXAMPLE SUBPROGRAMS                       *
+*                                                               *
+*****************************************************************
+*
+*$TBLENT1 DSECT                DSECT FOR EACH ACCOUNT HOLDER ENTRY
+*$TBLNME1 DS    CL25           THE CUSTOMER NAME
+*$TBLBAL1 DS    PL3            THE ACCOUNT BALANCE
+*
+*$IREC1   DSECT                DSECT FOR EACH INPUT RECORD
+*$INME1   DS    CL25           THE INPUT CUSTOMER NAME
+*$IBAL1   DS    ZL5            THE INPUT ACCOUNT BALANCE
+*
+SUBPGMS  CSECT
+         STM   14,12,12(13)   SAVE REGS IN CALLER'S SAVE AREA
+         LR    12,15          COPY CSECT ADDRESS INTO R12
+         USING SUBPGMS,12     ESTABLISH R12 AS THE BASE REG
+         LA    14,SAVEREGS    R14 POINTS TO THIS CSECT'S SAVE AREA
+         ST    14,8(,13)      STORE ADDRESS OF THIS CSECT'S SAVE AREA
+         ST    13,4(,14)      STORE ADDRESS OF CALLER'S SAVE AREA
+         LR    13,14          POINT R13 AT THIS CSECT'S SAVE AREA
+*
+         LA    11,4095(,12)      ESTABLISH
+         LA    11,1(,11)               SECOND
+         USING SUBPGMS+4096,11              BASE REGISTER
+*
+         LA    1,BTPARMS        R1 -> PARAMETER LIST FOR BUILDTBL
+         L     15,=V(BUILDTBL)  R15 -> SUBPROGRAM BUILDTBL
+         BALR  14,15            BRANCH AND LINK TO BUILDTBL
+*
+         LA    1,BTPARMS      R1 -> SAME PARM LIST AS THAT FOR BUILDTBL
+         L     15,=V(PROCTBL) R15 -> SUBPROGRAM PROCTBL
+         BALR  14,15          BRANCH AND LINK TO PROCTBL
+*
+         SR    15,15          R15 = RETURN CODE OF 0
+         L     13,4(,13)      POINT R13 TO CALLER'S SAVE AREA
+         L     14,12(,13)     RESTORE REGISTER 14
+         LM    0,12,20(13)    RESTORE R0 THRU R12
+         BR    14             RETURN TO CALLER
+*
+         LTORG                LITERAL ORGANIZATION
+*
+SAVEREGS DS    18F            REGISTER SAVE AREA
+*
+BTPARMS  DC    A(ACCOUNTS,ACCTCTR)
+*
+ACCOUNTS DC    50CL28'****************************'  ACCOUNTS TABLE
+*
+ACCTCTR  DC    PL3'0'
+*
+*        END   SUBPGMS    NOT AN ACTUAL END STATEMENT BUT HELPS TO
+*                         RECOGNIZE WHERE SUBPGMS ENDS AND THE NEXT
+*                         CSECT BEGINS
+*
+*
+*****************************************************************
+*                                                               *
+*  THIS IS THE DOC BOX FOR THE BUILDTBL SUBPROGRAM              *
+*                                                               *
+*  DOCUMENTATION REQUIREMENTS CAN BE FOUND IN THE CODING AND    *
+*  DOCUMENTATION GUIDELINES                                     *
+*                                                               *
+*****************************************************************
+*
+$TBLENT1 DSECT                1ST DSECT FOR ACCOUNT HOLDER TBL ENTRY
+$TBLNME1 DS    CL25           THE TABLEIZED CUSTOMER NAME
+$TBLBAL1 DS    PL3            THE TABLEIZED ACCOUNT BALANCE
+*
+$RECORD  DSECT                DSECT FOR EACH INPUT RECORD
+$ACCTNME DS    CL25           THE INPUT CUSTOMER NAME
+$ACCTBAL DS    ZL5            THE INPUT ACCOUNT BALANCE
+*
+BUILDTBL CSECT
+         STM   14,12,12(13)   SAVE REGS IN CALLER'S SAVE AREA
+         LR    12,15          COPY CSECT ADDRESS INTO R12
+         USING BUILDTBL,12    ESTABLISH R12 AS THE BASE REG
+         LA    14,BTSAVE      R14 POINTS TO THIS CSECT'S SAVE AREA
+         ST    14,8(,13)      STORE ADDRESS OF THIS CSECT'S SAVE AREA
+         ST    13,4(,14)      STORE ADDRESS OF CALLER'S SAVE AREA
+         LR    13,14          POINT R13 AT THIS CSECT'S SAVE AREA
+*
+         LM    2,3,0(1)       R2 -> ACCOUNTS TABLE
+*                             R3 -> ACCTCTR(3) PACKED DECIMAL
+*
+         XREAD RECORD,80      READ 1ST RECORD THAT IS IGNORED FOR NOW
+*
+         USING $TBLENT1,2     ESTABLISH ADDRESSABILITY FOR TBL ENTRY
+*
+         LA    4,RECORD       R4 -> BEGINNING OF THE INPUT RECORD
+         USING $RECORD,4      ESTABLISH ADDRESSABILITY FOR RECORD
+*
+         XREAD RECORD,80      READ FIRST CUSTOMER RECORD
+*
+LOOP1    BNZ   ENDLOOP1       BRANCH IF NO RECORD
+*
+         AP    0(3,3),=PL1'1' ADD 1 TO ACCOUNT COUNTER
+*
+         MVC   $TBLNME1(25),$ACCTNME    MOVE NAME TO TABLE
+         PACK  $TBLBAL1(3),$ACCTBAL(5)  PACK BALANCE INTO TABLE ENTRY
+*
+         LA    2,28(,2)       R2 -> NEXT ENTRY IN TABLE
+*
+         XREAD RECORD,80      READ NEXT RECORD
+*
+         B     LOOP1          BRANCH BACK TO TOP OF LOOP1
+*
+         DROP  2,4
+*
+ENDLOOP1 SR    15,15          R15 = RETURN CODE OF 0
+         L     13,4(,13)      POINT R13 TO CALLER'S SAVE AREA
+         L     14,12(,13)     RESTORE REGISTER 14
+         LM    0,12,20(13)    RESTORE R0 THRU R12
+         BR    14             RETURN TO CALLER
+*
+         LTORG                LITERAL ORGANIZATION
+*
+BTSAVE   DS    18F            REGISTER SAVE AREA
+*
+RECORD   DS    CL80
+*
+*        END   BUILDTBL   NOT AN ACTUAL END STATEMENT BUT HELPS TO
+*                         RECOGNIZE WHERE BUILDTBL ENDS AND THE NEXT
+*                         CSECT BEGINS
+*
+*****************************************************************
+*                                                               *
+*  THIS IS THE DOC BOX FOR THE PROCTBL SUBPROGRAM               *
+*                                                               *
+*  DOCUMENTATION REQUIREMENTS CAN BE FOUND IN THE CODING AND    *
+*  DOCUMENTATION GUIDELINES                                     *
+*                                                               *
+*****************************************************************
+*
+$TBLENT2 DSECT                2ND DSECT FOR ACCOUNT HOLDER TBL ENTRY
+$TBLNME2 DS    CL25           THE TABLEIZED CUSTOMER NAME
+$TBLBAL2 DS    PL3            THE TABLEIZED ACCOUNT BALANCE
+*
+PROCTBL  CSECT
+         STM   14,12,12(13)   SAVE REGS IN CALLER'S SAVE AREA
+         LR    12,15          COPY CSECT ADDRESS INTO R12
+         USING PROCTBL,12     ESTABLISH R12 AS THE BASE REG
+         LA    14,PTSAVE      R14 POINTS TO THIS CSECT'S SAVE AREA
+         ST    14,8(,13)      STORE ADDRESS OF THIS CSECT'S SAVE AREA
+         ST    13,4(,14)      STORE ADDRESS OF CALLER'S SAVE AREA
+         LR    13,14          POINT R13 AT THIS CSECT'S SAVE AREA
+*
+         LM    2,3,0(1)       R2 -> ACCOUNTS TABLE
+*                             R3 -> ACCTCTR(3) PACKED DECIMAL
+*
+         USING $TBLENT2,2     EST. ADDRESSABILITY FOR TBL ENTRY DSECT
+*
+         ZAP   DBLWORD(8),0(3,3)  PUT ACCTCTR IN DOUBLE WORD
+         CVB   4,DBLWORD      CONVERT ACCTCTR TO BINARY IN R4
+*
+LOOP2    MVC   OACCTNME(25),$TBLNME2 COPY ACCOUNT NAME TO DETAIL LINE
+*
+         LA    1,OACCTBAL+3   PRESET REGISTER 1 FOR EDMK
+         MVC   OACCTBAL(7),=X'402021204B2020' MOVE IN EDIT PATTERN
+         EDMK  OACCTBAL(7),$TBLBAL2  EDIT BALANCE INTO DETAIL LINE
+         BCTR  1,0            DECREMENT $ SIGN POINTER BY 1
+         MVI   0(1),C'$'      PLACE DOLLAR SIGN
+*
+         XPRNT DETAIL,133     PRINT THE DETAIL LINE
+*
+         LA    2,28(,2)       ADVANCE TO NEXT TABLE ENTRY
+*
+         BCT   4,LOOP2        IF ANOTHER ENTRY, BRANCH BACK TO LOOP2
+*
+         SR    15,15          R15 = RETURN CODE OF 0
+         L     13,4(,13)      POINT R13 TO CALLER'S SAVE AREA
+         L     14,12(,13)     RESTORE REGISTER 14
+         LM    0,12,20(13)    RESTORE R0 THRU R12
+         BR    14             RETURN TO CALLER
+*
+         LTORG                LITERAL ORGANIZATION
+*
+PTSAVE   DS    18F            REGISTER SAVE AREA
+*
+DBLWORD  DC    D'0'           DOUBLEWORD ON DOUBLEWORD BOUNDARY
+*
+DETAIL   DC    C'0'           ACCOUNT HOLDER DETAIL LINE
+OACCTNME DS    CL25           ACCOUNT HOLDER NAME OUTPUT
+         DC    5C' '
+OACCTBAL DS    CL7            ACCOUNT HOLDER BALANCE OUTPUT
+         DC    95C' '
+*
+         END   SUBPGMS
