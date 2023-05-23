@@ -13,4 +13,4 @@ Degree Honors: Magna Cum Laude
 
 Plan: Computer Science - Software Development
 
-[[NIU 2022 Dean](https://www.niu.edu/emmc/institutional-communications/graduation-deans-lists/fall-2022-deans.shtml)](https://www.niu.edu/emmc/institutional-communications/graduation-deans-lists/fall-2022-deans.shtml)
+[NIU Fall 2022 Dean](https://www.niu.edu/emmc/institutional-communications/graduation-deans-lists/fall-2022-deans.shtml)
