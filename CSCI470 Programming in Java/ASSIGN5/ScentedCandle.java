@@ -25,6 +25,7 @@ public class ScentedCandle extends Candle
         setPrice();
     }
 
+	@Override
     private void setPrice() 
     {
         super.price = getHeight() * 3.0;
