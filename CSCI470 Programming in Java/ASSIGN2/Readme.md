@@ -32,13 +32,13 @@ Write a program for Horizon Phones, a provider of cellular phone service. Prompt
 RUBRIC:
 3 points for each correctly coded plan.  2 points for the rest of the code.
 
-	Mins	            Text	          data
-A	Less than 500	    0	              0
-B	Less than 500	    More than 0	    0
-C	500 or more	      Less than 100	  0
-D	500 or more	      100 or more	    0
-E	Any	              Any	            Up to 3 GB
-F	Any	              Any	            More than 3 GB
+	Mins	            Text	         	 data
+A	Less than 500	    0	              		0
+B	Less than 500	    More than 0	    		0
+C	500 or more	    Less than 100	  	0
+D	500 or more	    100 or more	   	 	0
+E	Any	            Any	            		Up to 3 GB
+F	Any	            Any	            		More than 3 GB
 
 Exercise 5. (20 Points)
 Acme Parts runs a small factory and employs workers who are paid one of three hourly rates depending on their shift: first shift, $17 per hour; second shift, $18.50 per hour; third shift, $22 per hour. Each factory worker might work any number of hours per week; any hours greater than 40 are paid at one and one-half times the usual rate. In addition, second- and third-shift workers can elect to participate in the retirement plan for which 3% of the worker’s gross pay is deducted from the paychecks. Write a program that prompts the user for hours worked and shift, and, if the shift is 2 or 3, whether the worker elects the retirement. Display: 
